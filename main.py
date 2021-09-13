@@ -3,6 +3,7 @@
 import cv2
 import mediapipe as mp
 import utils
+import images
 
 
 class Game:
@@ -13,7 +14,7 @@ class Game:
         self.window_name = window_name
 
         # Загружаем пенис в память
-        self.penis = cv2.imread('penis.png', cv2.IMREAD_UNCHANGED)
+        self.penis = images.penis_img
 
         # Загружаем отслеживателя рук
         self.hands_handler = mp.solutions.hands.Hands(
@@ -97,7 +98,7 @@ class Game:
             # Получаем изображение с камеры
             succes, img = cap.read()
             if not succes:
-                print("Игнорируем пустой кадр с камеры")
+                # print("Игнорируем пустой кадр с камеры")
                 continue
 
             # Выполняем обработку каждоо кадра с картинки
